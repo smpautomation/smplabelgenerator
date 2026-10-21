@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<!-- <script setup lang="ts">
 import { Form, Head } from '@inertiajs/vue3';
 import SecurityController from '@/actions/App/Http/Controllers/Settings/SecurityController';
 import Heading from '@/components/Heading.vue';
@@ -30,12 +30,12 @@ defineOptions({
         ],
     },
 });
-</script>
+</script> -->
 
 <template>
     <Head title="Security settings" />
 
-    <h1 class="sr-only">Security settings</h1>
+    <!-- <h1 class="sr-only">Security settings</h1>
 
     <div class="space-y-6">
         <Heading
@@ -116,5 +116,5 @@ defineOptions({
     <ManagePasskeys
         :canManagePasskeys="canManagePasskeys"
         :passkeys="passkeys"
-    />
+    /> -->
 </template>

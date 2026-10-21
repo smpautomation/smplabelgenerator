@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<!-- <script setup lang="ts">
 import { Form, Head, usePage } from '@inertiajs/vue3';
 import { Link } from '@inertiajs/vue3';
 import { computed } from 'vue';
@@ -25,14 +25,14 @@ defineOptions({
 
 const page = usePage();
 const user = computed(() => page.props.auth.user);
-</script>
+</script> -->
 
 <template>
     <Head title="Profile settings" />
 
     <h1 class="sr-only">Profile settings</h1>
 
-    <div class="flex flex-col space-y-6">
+    <!-- <div class="flex flex-col space-y-6">
         <Heading
             variant="small"
             title="Profile"
@@ -101,5 +101,5 @@ const user = computed(() => page.props.auth.user);
         </Form>
     </div>
 
-    <DeleteUser />
+    <DeleteUser /> -->
 </template>

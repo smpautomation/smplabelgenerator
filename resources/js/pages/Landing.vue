@@ -9,7 +9,7 @@ type Customer = { name: string; slug: string; logo: string | null; options: Opti
 const props = defineProps<{ customers: Customer[]; brand: { company_name: string; site_name: string } }>();
 
 const query = ref('');
-const openSlug = ref<string | null>(null); // one card open at a time keeps tablet screens tidy
+const openSlug = ref<string | null>(null);
 
 const shown = computed(() => {
     const q = query.value.trim().toLowerCase();
@@ -18,7 +18,6 @@ const shown = computed(() => {
 const toggle = (slug: string) => (openSlug.value = openSlug.value === slug ? null : slug);
 const initials = (n: string) => n.split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join('').toUpperCase();
 
-// Inner SVG paths, 24x24 stroke icons
 const icons: Record<string, string> = {
     tray: '<path d="M3 12h18l-2 6H5l-2-6z"/><path d="M6 12V8m12 4V8"/>',
     package: '<rect x="4" y="8" width="16" height="11" rx="2"/><path d="M4 12h16M10 8V5h4v3"/>',
@@ -33,7 +32,7 @@ const icons: Record<string, string> = {
         <section class="smp-hero">
             <h1 class="smp-hero__title">
                 <span class="smp-hero__brand">
-                    <img src="/images/smp.ico" :alt="`${companyName} logo`" class="smp-logo-img2" />
+                    <img src="/images/smp.ico" :alt="`${brand.company_name} logo`" class="smp-logo-img2" />
                     <span class="smp-hero__co">{{ brand.company_name }}</span>
                 </span>
                 <span class="smp-hero__site">{{ brand.site_name }}</span>

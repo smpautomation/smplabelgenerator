@@ -1,5 +1,4 @@
 <script setup lang="ts">
-// Self-hosted fonts (intranet-safe): npm i @fontsource-variable/archivo @fontsource/atkinson-hyperlegible
 import '@fontsource-variable/archivo/wdth.css';
 import '@fontsource/atkinson-hyperlegible/400.css';
 import '@fontsource/atkinson-hyperlegible/700.css';
@@ -11,7 +10,6 @@ defineProps<{ siteName: string; companyName: string }>();
 const page = usePage();
 const user = computed(() => (page.props.auth as any)?.user ?? null);
 
-// Staff-only links are hidden from guests. History is public.
 const allLinks = [
     { href: '/admin', label: 'Administrator', staff: true },
     { href: '/history', label: 'History', staff: false },
@@ -43,7 +41,13 @@ const isActive = (href: string) => page.url === href || page.url.startsWith(href
             </div>
         </header>
         <main class="smp-main"><slot /></main>
-        <footer class="smp-foot">{{ companyName }}</footer>
+        <footer class="smp-foot">
+            <span class="smp-hero__brand2">
+                <img src="/images/smp.ico" :alt="`${companyName} logo`" class="smp-logo-img-footer" />
+                <span class="">{{ companyName }}</span>
+            </span>
+        </footer>
+
     </div>
 </template>
 
@@ -52,7 +56,6 @@ const isActive = (href: string) => page.url === href || page.url.startsWith(href
 .smp-app {
     min-height: 100vh; display: flex; flex-direction: column; color: var(--navy);
     font: 400 1.1875rem/1.5 'Atkinson Hyperlegible', sans-serif;
-    /* Backing-paper look: registration dots over a pale liner, with a cyan glow from the corner */
     background:
         radial-gradient(1100px 480px at 95% -8%, rgba(0, 207, 207, 0.3), transparent 62%),
         radial-gradient(circle at 1px 1px, rgba(0, 104, 207, 0.17) 1.5px, transparent 1.6px) 0 0 / 28px 28px,
@@ -73,6 +76,8 @@ const isActive = (href: string) => page.url === href || page.url.startsWith(href
 .smp-btn--ghost { background: transparent; color: #fff; box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.75); }
 .smp-main { flex: 1; width: min(1200px, 100%); margin: 0 auto; padding: clamp(2rem, 6vw, 4.5rem) clamp(1rem, 4vw, 3rem); }
 .smp-foot { padding: 1.5rem; text-align: center; color: var(--muted); font-size: 1rem; }
+.smp-hero__brand2 { display: flex; align-items: center; gap: 0.6rem; justify-content: center; }
+.smp-logo-img-footer { height: 2rem; width: auto; max-width: 11rem; padding: 0.35rem 0.6rem; border-radius: 0.75rem; object-fit: contain; }
 @media (max-width: 1100px) { .smp-nav { order: 3; flex-basis: 100%; } }
 @media (prefers-reduced-motion: reduce) { .smp-app *, .smp-app *::before, .smp-app *::after { animation: none !important; transition: none !important; } }
 </style>

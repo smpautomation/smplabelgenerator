@@ -21,7 +21,6 @@ class LandingController extends Controller
                 'name' => $c->name,
                 'slug' => $c->slug,
                 'logo' => $c->logo_url,
-                // Always all four types, in a fixed order, so the grid never shifts between customers.
                 'options' => collect(LabelType::cases())->map(fn (LabelType $t) => [
                     'type' => $t->value,
                     'label' => $t->label(),
