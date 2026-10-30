@@ -6,19 +6,18 @@ use App\Models\Customer;
 use Illuminate\Database\Seeder;
 
 class CustomerSeeder extends Seeder
-{
-    public function run(): void
+{     public function run(): void
     {
         // slug => [name, [type => method|null]]  (null = not available)
         $sample = [
-            'denso' => ['DENSO', ['tray' => 'tformer', 'package' => 'sbpl', 'box' => 'tformer', 'pallet' => null]],
-            'toyota' => ['TOYOTA MOTOR', ['tray' => 'sbpl', 'package' => null, 'box' => 'sbpl', 'pallet' => 'sbpl']],
-            'tesla' => ['TESLA', ['tray' => 'tformer', 'package' => 'tformer', 'box' => null, 'pallet' => 'tformer']],
-            'ferrari' => ['FERRARI', ['tray' => null, 'package' => 'sbpl', 'box' => 'sbpl', 'pallet' => null]],
-            'honda' => ['HONDA MOTOR', ['tray' => null, 'package' => 'sbpl', 'box' => 'sbpl', 'pallet' => null]],
-            'enercon' => ['ENERCON GLOBAL', ['tray' => null, 'package' => 'sbpl', 'box' => 'sbpl', 'pallet' => null]],
-            'mitsubishi' => ['MITSUBISHI ELECTRIC MOBILITY', ['tray' => null, 'package' => 'sbpl', 'box' => 'sbpl', 'pallet' => null]],
-            'daihatsu' => ['DAIHATSU MOTOR', ['tray' => null, 'package' => 'sbpl', 'box' => 'sbpl', 'pallet' => null]],
+            'denso' => ['DENSO', ['tray' => 'tformer', 'package' => null, 'box' => 'sbpl', 'pallet' => null]],
+            'toyota' => ['TOYOTA MOTOR', ['tray' => null, 'package' => 'tformer', 'box' => null, 'pallet' => null]],
+            'tesla' => ['TESLA', ['tray' => null, 'package' => null, 'box' => 'tformer', 'pallet' => null]],
+            'ferrari' => ['FERRARI', ['tray' => 'tformer', 'package' => null, 'box' => 'sbpl', 'pallet' => null]],
+            'honda' => ['HONDA MOTOR', ['tray' => null, 'package' => null, 'box' => null, 'pallet' => 'sbpl']],
+            'enercon' => ['ENERCON GLOBAL', ['tray' => null, 'package' => null, 'box' => 'sbpl', 'pallet' => null]],
+            'mitsubishi' => ['MITSUBISHI ELECTRIC MOBILITY', ['tray' => null, 'package' => 'sbpl', 'box' => 'tformer', 'pallet' => null]],
+            'daihatsu' => ['DAIHATSU MOTOR', ['tray' => null, 'package' => null, 'box' => null, 'pallet' => 'tformer']],
         ];
 
         $order = 0;
